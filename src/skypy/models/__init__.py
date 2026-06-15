@@ -2,5 +2,6 @@
 
 from skypy.models.crew import Crew, CrewRole
 from skypy.models.flight import Flight, FlightPriority
+from skypy.models.roster import Roster
 
-__all__ = ['Crew', 'CrewRole', 'Flight', 'FlightPriority']
+__all__ = ['Crew', 'CrewRole', 'Flight', 'FlightPriority', 'Roster']
