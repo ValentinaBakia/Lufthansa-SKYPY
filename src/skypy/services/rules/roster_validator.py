@@ -96,5 +96,5 @@ class RosterValidator:
 def validate_roster(
     roster: Roster, flights: Iterable[Flight], crew_list: Iterable[Crew]
 ) -> list[Violation]:
-    """Validate a roster using the public function required by the assignment."""
+    """Validate a roster and return every operational-rule violation."""
     return RosterValidator(crew_list).validate(roster)
