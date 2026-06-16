@@ -1,15 +1,11 @@
 from collections.abc import Iterable
-from datetime import timedelta
 
 from skypy.models import Crew, Flight, Roster, Violation, ViolationCode
+from skypy.services.rules.resting_rules import has_required_rest_between, required_rest_after
 
 
 class RosterValidator:
     """Operational crew schedule validator"""
-
-    SHORT_FLIGHT_LIMIT_MINUTES = 180
-    SHORT_FLIGHT_REST_MINUTES = 60
-    LONG_FLIGHT_REST_MINUTES = 120
 
     def __init__(self, crew_list: Iterable[Crew]) -> None:
         self._crew = tuple(crew_list)
@@ -79,9 +75,9 @@ class RosterValidator:
                     )
                 )
 
-            required_rest_minutes = self._required_rest_minutes(previous_flight)
-            actual_rest = next_flight.departure - previous_flight.arrival
-            if actual_rest < timedelta(minutes=required_rest_minutes):
+            required_rest = required_rest_after(previous_flight)
+            if not has_required_rest_between(previous_flight, next_flight):
+                required_rest_minutes = int(required_rest.total_seconds() // 60)
                 violations.append(
                     Violation(
                         crew_id=crew_member.crew_id,
@@ -95,18 +91,6 @@ class RosterValidator:
                 )
 
         return violations
-
-    @classmethod
-    def _required_rest_minutes(cls, previous_flight: Flight) -> int:
-        """
-        Return required rest based on the previous flight's duration.
-        The rules is that after a short flight (<3h) the crew needs at least 1h of rest,
-        after a long flight (>=3h) the crew needs at least 2h of rest.
-        """
-        previous_flight_duration = previous_flight.arrival - previous_flight.departure
-        if previous_flight_duration < timedelta(minutes=cls.SHORT_FLIGHT_LIMIT_MINUTES):
-            return cls.SHORT_FLIGHT_REST_MINUTES
-        return cls.LONG_FLIGHT_REST_MINUTES
 
 
 def validate_roster(

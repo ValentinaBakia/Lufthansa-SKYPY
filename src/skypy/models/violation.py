@@ -9,13 +9,15 @@ class ViolationCode(StrEnum):
     HOME_BASE_START = 'home_base_start'
     ROUTE_CONTINUITY = 'route_continuity'
     DYNAMIC_REST = 'dynamic_rest'
+    INCOMPLETE_PAIRING = 'incomplete_pairing'
+    INVALID_PAIRING = 'invalid_pairing'
 
 
 @dataclass(frozen=True, slots=True)
 class Violation:
     """Dataclass used to represent a violation of a roster rule."""
 
-    crew_id: str
+    crew_id: str | None
     flight_id: str
     description: str
     code: ViolationCode

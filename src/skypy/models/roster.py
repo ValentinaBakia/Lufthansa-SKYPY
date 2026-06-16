@@ -35,6 +35,12 @@ class Roster:
         assigned_crew.append(crew_id)
         self._crew_flights.setdefault(crew_id, []).append(flight_id)
 
+    def get_flight(self, flight_id: str) -> Flight:
+        """Return the flight tracked by this roster."""
+        if flight_id not in self._flight_by_id:
+            raise ValueError(f'flight {flight_id!r} does not exist')
+        return self._flight_by_id[flight_id]
+
     def get_flight_crew(self, flight_id: str) -> list[str]:
         """Return the crew assigned to a flight."""
         return list(self._assignments.get(flight_id, []))
