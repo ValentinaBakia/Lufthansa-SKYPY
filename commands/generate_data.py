@@ -5,6 +5,7 @@ from pathlib import Path
 from skypy.io import read_crew_csv, read_flights_csv
 
 DATA = Path(__file__).resolve().parent.parent / 'data'
+OUTPUT = Path(__file__).resolve().parent.parent / 'output'
 
 
 def main() -> None:
@@ -37,7 +38,8 @@ def main() -> None:
         ],
     }
 
-    out = DATA.parent / 'schedule_payload.json'
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    out = OUTPUT / 'schedule_payload.json'
     out.write_text(json.dumps(payload, indent=2), encoding='utf-8')
     print(f'\n=== API PAYLOAD written to {out} ===')
 
