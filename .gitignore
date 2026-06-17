@@ -1,24 +1,15 @@
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Virtual environments and local configuration
+# Local environment
 .venv/
 .env
 
-# Editors and operating systems
+# Editor files
 .idea/
 .vscode/
 !.vscode/
 .vscode/*
-!.vscode/settings.json
 !.vscode/extensions.json
-.DS_Store
 
-# Generated project output
+# Generated files
 output/*.json
 !output/.gitkeep
+schedule_payload.json
