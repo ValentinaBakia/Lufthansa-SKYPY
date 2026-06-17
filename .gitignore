@@ -2,12 +2,14 @@
 .venv/
 .env
 
+# Generated Python/tooling files
+__pycache__/
+.ruff_cache/
+*.egg-info/
+
 # Editor files
 .idea/
 .vscode/
-!.vscode/
-.vscode/*
-!.vscode/extensions.json
 
 # Generated files
 output/*.json

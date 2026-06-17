@@ -3,6 +3,7 @@
 from flask import Blueprint, abort, current_app, jsonify, request
 from marshmallow import ValidationError
 
+from skypy.io.serializers import write_roster_output
 from skypy.schemas.requests import ScheduleRequestSchema
 from skypy.schemas.responses import ScheduleResponseSchema
 from skypy.services.costs import calculate_layover_costs
@@ -18,7 +19,6 @@ def schedule():
     payload = request.get_json(silent=True)
     if payload is None:
         abort(400, description='request body must be JSON')
-
     try:
         validated = ScheduleRequestSchema().load(payload)
         flights = validated['flights']
@@ -42,14 +42,9 @@ def schedule():
         total_layover_cost=total_layover_cost,
     )
     current_app.extensions['schedule_store'].save(snapshot=snapshot)
+    response_body = ScheduleResponseSchema().dump(snapshot)
 
-    return jsonify(
-        ScheduleResponseSchema().dump(
-            {
-                'roster': roster,
-                'crew_members': crew_members,
-                'layover_costs': layover_costs,
-                'unassigned': unassigned_flights,
-            }
-        )
-    ), 200
+    # Before returning the response, export the roster to a json
+    write_roster_output(snapshot.total_layover_cost, response_body)
+
+    return jsonify(response_body), 200
