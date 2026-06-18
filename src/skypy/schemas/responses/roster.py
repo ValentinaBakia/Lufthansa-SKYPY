@@ -4,7 +4,9 @@ from collections.abc import Iterable
 
 from marshmallow import Schema, fields
 
-from skypy.models import Crew, Flight, Roster
+from skypy.models.crew import Crew
+from skypy.models.flight import Flight
+from skypy.models.roster import Roster
 
 
 class CrewRosterEntrySchema(Schema):

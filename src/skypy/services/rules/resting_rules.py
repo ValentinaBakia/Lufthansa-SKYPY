@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 
-from skypy.models import Flight
+from skypy.models.flight import Flight
 
 SHORT_FLIGHT_LIMIT = timedelta(minutes=180)
 SHORT_FLIGHT_REST = timedelta(minutes=60)

@@ -5,7 +5,9 @@ from dataclasses import dataclass
 from datetime import datetime
 from heapq import heapify, heappop
 
-from skypy.models import Crew, CrewRole, Flight, Roster
+from skypy.models.crew import Crew, CrewRole
+from skypy.models.flight import Flight
+from skypy.models.roster import Roster
 from skypy.services.pairing import validate_pairing_candidate
 from skypy.services.uitls.flight_neighbors import get_flight_neighbors
 

@@ -5,7 +5,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterable
 
-from skypy.models import Crew, CrewRole, Flight, FlightPriority
+from skypy.models.crew import Crew, CrewRole
+from skypy.models.flight import Flight, FlightPriority
 
 FLIGHT_FIELDS = frozenset(
     {

@@ -4,8 +4,8 @@ from flask import Blueprint, abort, current_app, jsonify, request
 from marshmallow import ValidationError
 
 from skypy.io.serializers import write_roster_output
-from skypy.schemas.requests import ScheduleRequestSchema
-from skypy.schemas.responses import ScheduleResponseSchema
+from skypy.schemas.requests.schedule import ScheduleRequestSchema
+from skypy.schemas.responses.schedule import ScheduleResponseSchema
 from skypy.services.costs import calculate_layover_costs
 from skypy.services.scheduler import generate_schedule
 from skypy.state.schedule_store import ScheduleSnapshot

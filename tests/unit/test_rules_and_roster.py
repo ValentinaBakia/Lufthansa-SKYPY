@@ -2,7 +2,10 @@ from datetime import datetime
 
 import pytest
 
-from skypy.models import Crew, CrewRole, Flight, FlightPriority, Roster, ViolationCode
+from skypy.models.crew import Crew, CrewRole
+from skypy.models.flight import Flight, FlightPriority
+from skypy.models.roster import Roster
+from skypy.models.violation import ViolationCode
 from skypy.services.pairing import validate_pairing
 from skypy.services.rules.roster_validator import validate_roster
 

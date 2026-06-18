@@ -2,7 +2,9 @@
 
 from dataclasses import dataclass
 
-from skypy.models import Crew, Flight, Roster
+from skypy.models.crew import Crew
+from skypy.models.flight import Flight
+from skypy.models.roster import Roster
 from skypy.services.scheduler import UnassignedFlight
 
 

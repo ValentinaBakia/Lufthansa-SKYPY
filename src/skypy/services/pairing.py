@@ -2,7 +2,10 @@
 
 from collections.abc import Iterable
 
-from skypy.models import Crew, CrewRole, Flight, Roster, Violation, ViolationCode
+from skypy.models.crew import Crew, CrewRole
+from skypy.models.flight import Flight
+from skypy.models.roster import Roster
+from skypy.models.violation import Violation, ViolationCode
 from skypy.services.rules.resting_rules import has_required_rest_between
 from skypy.services.uitls.flight_neighbors import get_flight_neighbors
 

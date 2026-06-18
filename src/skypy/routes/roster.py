@@ -2,7 +2,7 @@
 
 from flask import Blueprint, abort, current_app, jsonify
 
-from skypy.schemas.responses import CrewRosterResponseSchema
+from skypy.schemas.responses.roster import CrewRosterResponseSchema
 
 roster_bp = Blueprint('roster', __name__)
 

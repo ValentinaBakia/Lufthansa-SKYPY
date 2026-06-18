@@ -3,7 +3,7 @@
 from flask import Flask
 
 from skypy.errors import register_error_handlers
-from skypy.routes import register_blueprints
+from skypy.routes.registry import register_blueprints
 from skypy.state.schedule_store import ScheduleStore
 
 

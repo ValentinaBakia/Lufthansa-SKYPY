@@ -1,6 +1,8 @@
 """Helpers for locating adjacent flights in a crew schedule."""
 
-from skypy.models import Crew, Flight, Roster
+from skypy.models.crew import Crew
+from skypy.models.flight import Flight
+from skypy.models.roster import Roster
 
 
 def get_flight_neighbors(

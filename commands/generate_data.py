@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-from skypy.io import read_crew_csv, read_flights_csv
+from skypy.io.csv_reader import read_crew_csv, read_flights_csv
 
 DATA = Path(__file__).resolve().parent.parent / 'data'
 OUTPUT = Path(__file__).resolve().parent.parent / 'output'

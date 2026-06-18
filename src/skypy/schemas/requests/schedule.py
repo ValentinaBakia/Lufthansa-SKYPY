@@ -2,9 +2,8 @@
 
 from marshmallow import EXCLUDE, Schema, fields, post_load, validate
 
-from skypy.models import Crew, Flight
-from skypy.models.crew import CrewRole
-from skypy.models.flight import FlightPriority
+from skypy.models.crew import Crew, CrewRole
+from skypy.models.flight import Flight, FlightPriority
 
 
 class FlightRequestSchema(Schema):

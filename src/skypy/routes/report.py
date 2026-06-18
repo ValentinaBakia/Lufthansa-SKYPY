@@ -2,7 +2,7 @@
 
 from flask import Blueprint, abort, current_app, jsonify
 
-from skypy.schemas.responses import ReportResponseSchema
+from skypy.schemas.responses.report import ReportResponseSchema
 from skypy.services.costs import calculate_layover_costs
 
 report_bp = Blueprint('report', __name__)
