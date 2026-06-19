@@ -10,8 +10,3 @@ __pycache__/
 # Editor files
 .idea/
 .vscode/
-
-# Generated files
-output/*.json
-!output/.gitkeep
-schedule_payload.json

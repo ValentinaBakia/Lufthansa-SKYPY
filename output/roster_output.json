@@ -1,0 +1,56 @@
+{
+  "CAP001": {
+    "role": "Captain",
+    "flights": [
+      "FL100",
+      "FL200",
+      "FL300"
+    ],
+    "total_hours": 7.5,
+    "layover_cost": 1040.0
+  },
+  "CAP002": {
+    "role": "Captain",
+    "flights": [
+      "FL500"
+    ],
+    "total_hours": 3.0,
+    "layover_cost": 960.0
+  },
+  "CAP003": {
+    "role": "Captain",
+    "flights": [
+      "FL400"
+    ],
+    "total_hours": 13.0,
+    "layover_cost": 1200.0
+  },
+  "FO001": {
+    "role": "FirstOfficer",
+    "flights": [
+      "FL100",
+      "FL200",
+      "FL300"
+    ],
+    "total_hours": 7.5,
+    "layover_cost": 680.0
+  },
+  "FO002": {
+    "role": "FirstOfficer",
+    "flights": [
+      "FL500"
+    ],
+    "total_hours": 3.0,
+    "layover_cost": 640.0
+  },
+  "FO003": {
+    "role": "FirstOfficer",
+    "flights": [
+      "FL400"
+    ],
+    "total_hours": 13.0,
+    "layover_cost": 720.0
+  },
+  "unassigned": [],
+  "total_layover_cost": 5240.0
+}
